@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS足球后台管理</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 登录界面 -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-box">
+                <div class="login-header">
+                    <h2><i class="fas fa-shield-alt"></i> DS足球后台管理</h2>
+                    <p>请输入管理员密码</p>
+                </div>
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="adminPassword" placeholder="管理员密码" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="checkmark"></span>
+                            记住我
+                        </label>
+                    </div>
+                    <button type="submit" class="login-btn">
+                        <i class="fas fa-sign-in-alt"></i>
+                        登录
+                    </button>
+                </form>
+                <div class="login-footer">
+                    <p>默认密码：admin123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主界面 -->
+    <div id="mainScreen" class="main-screen" style="display: none;">
+        <div class="admin-container">
+            <!-- 侧边栏 -->
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h3><i class="fas fa-cog"></i> 后台管理</h3>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#dashboard" class="nav-item active" data-tab="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        仪表盘
+                    </a>
+                    <a href="#content" class="nav-item" data-tab="content">
+                        <i class="fas fa-edit"></i>
+                        内容管理
+                    </a>
+                    <a href="#images" class="nav-item" data-tab="images">
+                        <i class="fas fa-images"></i>
+                        图片管理
+                    </a>
+                    <a href="#downloads" class="nav-item" data-tab="downloads">
+                        <i class="fas fa-download"></i>
+                        下载管理
+                    </a>
+                    <a href="#settings" class="nav-item" data-tab="settings">
+                        <i class="fas fa-cogs"></i>
+                        系统设置
+                    </a>
+                </nav>
+                <div class="sidebar-footer">
+                    <button id="logoutBtn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        退出登录
+                    </button>
+                </div>
+            </aside>
+
+            <!-- 主内容区 -->
+            <main class="main-content">
+                <!-- 仪表盘 -->
+                <div id="dashboard" class="content-tab active">
+                    <div class="tab-header">
+                        <h2><i class="fas fa-tachometer-alt"></i> 仪表盘</h2>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>今日访问</h3>
+                                <p class="stat-number">2,847</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>今日下载</h3>
+                                <p class="stat-number">1,234</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>总用户数</h3>
+                                <p class="stat-number">500万+</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>用户评分</h3>
+                                <p class="stat-number">4.9</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内容管理 -->
+                <div id="content" class="content-tab">
+                    <div class="tab-header">
+                        <h2><i class="fas fa-edit"></i> 内容管理</h2>
+                        <button class="save-btn" onclick="saveContent()">
+                            <i class="fas fa-save"></i> 保存所有更改
+                        </button>
+                    </div>
+                    
+                    <!-- 首页内容 -->
+                    <div class="content-section">
+                        <h3><i class="fas fa-home"></i> 首页内容</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>主标题</label>
+                                <input type="text" id="heroTitle" value="DS足球" placeholder="主标题">
+                            </div>
+                            <div class="form-group">
+                                <label>副标题</label>
+                                <input type="text" id="heroSubtitle" value="足球比分直播与数据分析平台，随时随地享受全球足球盛宴" placeholder="副标题">
+                            </div>
+                            <div class="form-group full-width">
+                                <label>高亮内容</label>
+                                <textarea id="heroHighlight" rows="3" placeholder="高亮内容">拥有全球207个国家或地区、2688个联赛、52824支球队的详细数据供您查询</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 统计数据 -->
+                    <div class="content-section">
+                        <h3><i class="fas fa-chart-bar"></i> 统计数据</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>用户下载数</label>
+                                <input type="text" id="downloadCount" value="500万+" placeholder="用户下载数">
+                            </div>
+                            <div class="form-group">
+                                <label>用户评分</label>
+                                <input type="text" id="userRating" value="4.9" placeholder="用户评分">
+                            </div>
+                            <div class="form-group">
+                                <label>好评率</label>
+                                <input type="text" id="goodRate" value="99.9%" placeholder="好评率">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 功能特色 -->
+                    <div class="content-section">
+                        <h3><i class="fas fa-star"></i> 功能特色</h3>
+                        <div class="features-editor">
+                            <div class="feature-item">
+                                <div class="feature-header">
+                                    <h4>功能1</h4>
+                                    <button class="remove-btn" onclick="removeFeature(this)"><i class="fas fa-trash"></i></button>
+                                </div>
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label>标题</label>
+                                        <input type="text" class="feature-title" value="实时比分" placeholder="功能标题">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>描述</label>
+                                        <textarea class="feature-desc" rows="2" placeholder="功能描述">全球足球赛事实时比分直播，数据更新及时准确</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="add-btn" onclick="addFeature()">
+                                <i class="fas fa-plus"></i> 添加功能
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 底部信息 -->
+                    <div class="content-section">
+                        <h3><i class="fas fa-info-circle"></i> 底部信息</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>客服邮箱</label>
+                                <input type="email" id="supportEmail" value="support@dszuqiu.com" placeholder="客服邮箱">
+                            </div>
+                            <div class="form-group">
+                                <label>客服电话</label>
+                                <input type="text" id="supportPhone" value="400-999-8888" placeholder="客服电话">
+                            </div>
+                            <div class="form-group">
+                                <label>微信客服</label>
+                                <input type="text" id="supportWechat" value="dszuqiu_support" placeholder="微信客服">
+                            </div>
+                            <div class="form-group">
+                                <label>版权信息</label>
+                                <input type="text" id="copyright" value="© 2025 DSZUQIU.COM. All Rights Reserved. 蜀ICP备14008209号" placeholder="版权信息">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 图片管理 -->
+                <div id="images" class="content-tab">
+                    <div class="tab-header">
+                        <h2><i class="fas fa-images"></i> 图片管理</h2>
+                        <button class="save-btn" onclick="saveImages()">
+                            <i class="fas fa-save"></i> 保存更改
+                        </button>
+                    </div>
+                    
+                    <div class="images-container">
+                        <!-- 轮播图管理 -->
+                        <div class="image-section">
+                            <h3><i class="fas fa-film"></i> 首页轮播图</h3>
+                            <div class="image-grid" id="carouselImages">
+                                <div class="image-item">
+                                    <div class="image-preview">
+                                        <img src="images/app1.png" alt="轮播图1">
+                                    </div>
+                                    <div class="image-controls">
+                                        <input type="file" accept="image/*" class="image-upload" id="screenshot1">
+                                        <button class="upload-btn">更换图片</button>
+                                        <input type="text" class="image-alt" value="APP界面1" placeholder="图片描述">
+                                    </div>
+                                </div>
+                                <div class="image-item">
+                                    <div class="image-preview">
+                                        <img src="images/app2.png" alt="轮播图2">
+                                    </div>
+                                    <div class="image-controls">
+                                        <input type="file" accept="image/*" class="image-upload" id="screenshot2">
+                                        <button class="upload-btn">更换图片</button>
+                                        <input type="text" class="image-alt" value="APP界面2" placeholder="图片描述">
+                                    </div>
+                                </div>
+                                <div class="image-item">
+                                    <div class="image-preview">
+                                        <img src="images/app3.png" alt="轮播图3">
+                                    </div>
+                                    <div class="image-controls">
+                                        <input type="file" accept="image/*" class="image-upload" id="screenshot3">
+                                        <button class="upload-btn">更换图片</button>
+                                        <input type="text" class="image-alt" value="APP界面3" placeholder="图片描述">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 其他图片 -->
+                        <div class="image-section">
+                            <h3><i class="fas fa-qrcode"></i> 其他图片</h3>
+                            <div class="image-grid">
+                                <div class="image-item">
+                                    <div class="image-preview">
+                                        <img src="images/qr-code.png" alt="二维码">
+                                    </div>
+                                    <div class="image-controls">
+                                        <input type="file" accept="image/*" class="image-upload" id="qrCode">
+                                        <button class="upload-btn">更换二维码</button>
+                                        <input type="text" class="image-alt" value="下载二维码" placeholder="图片描述">
+                                    </div>
+                                </div>
+                                <div class="image-item">
+                                    <div class="image-preview">
+                                        <img src="images/logo.png" alt="Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                        <div class="no-image">暂无Logo</div>
+                                    </div>
+                                    <div class="image-controls">
+                                        <input type="file" accept="image/*" class="image-upload" id="logo">
+                                        <button class="upload-btn">上传Logo</button>
+                                        <input type="text" class="image-alt" value="DS足球Logo" placeholder="图片描述">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 下载管理 -->
+                <div id="downloads" class="content-tab">
+                    <div class="tab-header">
+                        <h2><i class="fas fa-download"></i> 下载管理</h2>
+                        <button class="save-btn" onclick="saveDownloads()">
+                            <i class="fas fa-save"></i> 保存更改
+                        </button>
+                    </div>
+                    
+                    <div class="downloads-container">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>iOS下载链接</label>
+                                <input type="url" id="iosDownload" value="https://apps.apple.com/app/dszuqiu" placeholder="iOS下载链接">
+                            </div>
+                            <div class="form-group">
+                                <label>Android下载链接</label>
+                                <input type="url" id="androidDownload" value="https://play.google.com/store/apps/details?id=com.dszuqiu.app" placeholder="Android下载链接">
+                            </div>
+                            <div class="form-group">
+                                <label>通用下载链接</label>
+                                <input type="url" id="generalDownload" value="https://live.dszuqiu.com/download" placeholder="通用下载链接">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 系统设置 -->
+                <div id="settings" class="content-tab">
+                    <div class="tab-header">
+                        <h2><i class="fas fa-cogs"></i> 系统设置</h2>
+                        <button class="save-btn" onclick="saveSettings()">
+                            <i class="fas fa-save"></i> 保存设置
+                        </button>
+                    </div>
+                    
+                    <div class="settings-container">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>网站标题</label>
+                                <input type="text" id="siteTitle" value="DS足球 - 足球比分直播与数据分析平台" placeholder="网站标题">
+                            </div>
+                            <div class="form-group">
+                                <label>网站描述</label>
+                                <textarea id="siteDescription" rows="3" placeholder="网站描述">DS足球是专业的足球比分直播与数据分析平台</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>统计代码</label>
+                                <textarea id="analyticsCode" rows="5" placeholder="Google Analytics或其他统计代码"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>客服代码</label>
+                                <textarea id="customerServiceCode" rows="5" placeholder="在线客服代码"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

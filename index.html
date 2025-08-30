@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DS足球 - 足球比分直播与数据分析平台</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="DS足球" class="logo-img">
+                <span class="logo-text">DS足球</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">首页</a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">功能特色</a>
+                </li>
+
+                
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">联系我们</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页横幅 -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <!-- 左侧：二维码 -->
+            <div class="hero-qr-section desktop-only">
+                <div class="qr-code-section">
+                    <div class="qr-code-container">
+                        <img src="images/qr-code.png" alt="下载二维码" class="qr-img" data-image-id="qrCode">
+                        <p>扫描二维码下载</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 中间：文字内容和下载按钮 -->
+            <div class="hero-content">
+                <h1 class="hero-title">DS足球</h1>
+                <p class="hero-subtitle">足球比分直播与数据分析平台，随时随地享受全球足球盛宴</p>
+                <div class="hero-highlight">
+                    <p>拥有全球207个国家或地区、2688个联赛、52824支球队的详细数据供您查询</p>
+                </div>
+                
+                <!-- 下载按钮 -->
+                <div class="hero-buttons">
+                    <button class="btn btn-primary download-btn">
+                        <i class="fab fa-apple"></i>
+                        IOS下载
+                    </button>
+                    <button class="btn btn-secondary download-btn">
+                        <i class="fab fa-google-play"></i>
+                        Android下载
+                    </button>
+                </div>
+                
+                <div class="download-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500万+</span>
+                        <span class="stat-label">用户下载</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label">用户评分</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">好评率</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右侧：轮播图 -->
+            <div class="hero-image">
+                <div class="hero-carousel">
+                    <div class="hero-slide active">
+                        <img src="images/app1.png" alt="APP界面1" class="hero-img" data-image-id="screenshot1">
+                    </div>
+                    <div class="hero-slide">
+                        <img src="images/app2.png" alt="APP界面2" class="hero-img" data-image-id="screenshot2">
+                    </div>
+                    <div class="hero-slide">
+                        <img src="images/app3.png" alt="APP界面3" class="hero-img" data-image-id="screenshot3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 功能特色 -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">功能特色</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <h3>比分直播</h3>
+                    <p>即时比分、角球比分，实时更新比赛数据，掌握最新赛况</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>数据统计</h3>
+                    <p>专业的足球大数据分析，全面准确及时的数据直播</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>比赛日程</h3>
+                    <p>竞彩足球、北京单场，全球足球赛事日程一览无余</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>视频直播</h3>
+                    <p>视频集锦、录像回放，精彩瞬间不容错过</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>足球资讯</h3>
+                    <p>比赛前瞻、专家专栏，深度解析足球世界</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>专家号</h3>
+                    <p>专家团专业分析，助您更好地了解足球比赛</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- 用户评价 -->
+    <section class="reviews">
+        <div class="container">
+            <h2 class="section-title">用户评价</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <h4>陈先生</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"比分更新很及时，数据很全面，是看球必备的APP！"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <h4>刘女士</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"全球赛事数据很全，专家分析很专业，帮助我更好地了解足球。"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <h4>王先生</h4>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">"界面设计很美观，用户体验很好，视频集锦很精彩，强烈推荐！"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>邮箱支持</h3>
+                            <p>support@dszuqiu.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-weixin"></i>
+                        <div>
+                            <h3>微信客服</h3>
+                            <p>dszuqiu_support</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-qq"></i>
+                        <div>
+                            <h3>QQ客服</h3>
+                            <p>123456789</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>服务时间</h3>
+                            <p>7×24小时在线服务</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DS足球</h3>
+                    <p>足球比分直播与数据分析平台，为您提供最优质的足球数据服务。</p>
+                </div>
+                <div class="footer-section">
+                    <h3>产品功能</h3>
+                    <ul>
+                        <li><a href="#">比分直播</a></li>
+                        <li><a href="#">数据统计</a></li>
+                        <li><a href="#">比赛日程</a></li>
+                        <li><a href="#">足球资讯</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>帮助支持</h3>
+                    <ul>
+                        <li><a href="#">使用教程</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">更新日志</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>关注我们</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>声明：本网资讯仅供体育爱好者进行比赛浏览观看研究之用，任何人不得用于非法用途，否则责任自负。</p>
+                <p>&copy; 2025 DSZUQIU.COM. All Rights Reserved. 蜀ICP备14008209号 | <a href="#">关于我们</a> | <a href="#">意见反馈</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/image-checker.js"></script>
+</body>
+</html>

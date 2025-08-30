@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台图片上传测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .image-item {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 5px;
+        }
+        .image-preview {
+            margin: 10px 0;
+        }
+        .image-preview img {
+            max-width: 200px;
+            max-height: 200px;
+            border: 1px solid #ccc;
+        }
+        .upload-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .upload-btn:hover {
+            background: #229954;
+        }
+        .image-upload {
+            display: none;
+        }
+        .no-image {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>后台图片上传功能测试</h1>
+    
+    <div class="test-section">
+        <h2>轮播图上传测试</h2>
+        
+        <div class="image-item">
+            <h3>轮播图1</h3>
+            <div class="image-preview">
+                <img src="images/screenshot1.svg" alt="轮播图1" id="test-img-1">
+                <div class="no-image" id="no-img-1">暂无图片</div>
+            </div>
+            <input type="file" accept="image/*" class="image-upload" id="test1">
+            <button class="upload-btn" onclick="document.getElementById('test1').click()">上传图片</button>
+        </div>
+        
+        <div class="image-item">
+            <h3>轮播图2</h3>
+            <div class="image-preview">
+                <img src="images/screenshot2.svg" alt="轮播图2" id="test-img-2">
+                <div class="no-image" id="no-img-2">暂无图片</div>
+            </div>
+            <input type="file" accept="image/*" class="image-upload" id="test2">
+            <button class="upload-btn" onclick="document.getElementById('test2').click()">上传图片</button>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>其他图片上传测试</h2>
+        
+        <div class="image-item">
+            <h3>二维码</h3>
+            <div class="image-preview">
+                <img src="images/qr-code.png" alt="二维码" id="test-img-qr">
+                <div class="no-image" id="no-img-qr">暂无图片</div>
+            </div>
+            <input type="file" accept="image/*" class="image-upload" id="qrCode">
+            <button class="upload-btn" onclick="document.getElementById('qrCode').click()">上传二维码</button>
+        </div>
+        
+        <div class="image-item">
+            <h3>Logo</h3>
+            <div class="image-preview">
+                <img src="images/logo.png" alt="Logo" id="test-img-logo" onerror="this.style.display='none'; document.getElementById('no-img-logo').style.display='block';">
+                <div class="no-image" id="no-img-logo">暂无Logo</div>
+            </div>
+            <input type="file" accept="image/*" class="image-upload" id="logo">
+            <button class="upload-btn" onclick="document.getElementById('logo').click()">上传Logo</button>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>测试结果</h2>
+        <div id="test-results">
+            <p>点击上传按钮测试图片上传功能</p>
+        </div>
+    </div>
+
+    <script>
+        // 简化的图片上传处理函数
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                // 检查文件类型
+                if (!file.type.startsWith('image/')) {
+                    alert('请选择图片文件！');
+                    return;
+                }
+                
+                // 检查文件大小（限制为5MB）
+                if (file.size > 5 * 1024 * 1024) {
+                    alert('图片文件大小不能超过5MB！');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    // 查找对应的预览图片
+                    const imageId = event.target.id;
+                    const img = document.getElementById(`test-img-${imageId.replace('test', '').replace('qrCode', 'qr').replace('logo', 'logo')}`);
+                    const noImageDiv = document.getElementById(`no-img-${imageId.replace('test', '').replace('qrCode', 'qr').replace('logo', 'logo')}`);
+                    
+                    if (img) {
+                        img.src = e.target.result;
+                        img.style.display = 'block';
+                        if (noImageDiv) {
+                            noImageDiv.style.display = 'none';
+                        }
+                        
+                        // 保存图片数据
+                        const imageData = {
+                            src: e.target.result,
+                            name: file.name,
+                            type: file.type,
+                            size: file.size
+                        };
+                        
+                        // 保存到localStorage
+                        const savedImages = JSON.parse(localStorage.getItem('uploadedImages') || '{}');
+                        savedImages[imageId] = imageData;
+                        localStorage.setItem('uploadedImages', JSON.stringify(savedImages));
+                        
+                        // 显示成功消息
+                        document.getElementById('test-results').innerHTML = `
+                            <p style="color: green;">✅ 图片上传成功！</p>
+                            <p>文件名: ${file.name}</p>
+                            <p>文件大小: ${(file.size / 1024).toFixed(2)} KB</p>
+                            <p>文件类型: ${file.type}</p>
+                        `;
+                    }
+                };
+                
+                reader.onerror = () => {
+                    alert('图片读取失败！');
+                };
+                
+                reader.readAsDataURL(file);
+            }
+        }
+        
+        // 绑定文件上传事件
+        document.addEventListener('change', (e) => {
+            if (e.target.classList.contains('image-upload')) {
+                handleImageUpload(e);
+            }
+        });
+        
+        // 页面加载时显示已保存的图片
+        window.addEventListener('load', () => {
+            const savedImages = localStorage.getItem('uploadedImages');
+            if (savedImages) {
+                const images = JSON.parse(savedImages);
+                Object.keys(images).forEach(imageId => {
+                    const imageData = images[imageId];
+                    const img = document.getElementById(`test-img-${imageId.replace('test', '').replace('qrCode', 'qr').replace('logo', 'logo')}`);
+                    const noImageDiv = document.getElementById(`no-img-${imageId.replace('test', '').replace('qrCode', 'qr').replace('logo', 'logo')}`);
+                    
+                    if (img) {
+                        img.src = imageData.src;
+                        img.style.display = 'block';
+                        if (noImageDiv) {
+                            noImageDiv.style.display = 'none';
+                        }
+                    }
+                });
+                
+                document.getElementById('test-results').innerHTML = `
+                    <p style="color: blue;">📋 已加载 ${Object.keys(images).length} 张保存的图片</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
+
