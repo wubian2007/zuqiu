@@ -80,6 +80,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    position: relative;
 }
 
 .nav-link {
@@ -113,6 +114,8 @@ body {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
 }
 
 .bar {
@@ -297,6 +300,7 @@ body {
     width: 400px;
     height: 800px;
     overflow: visible;
+    padding: 1rem 0;
 }
 
 .hero-slide {
@@ -310,6 +314,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0.5rem 0;
 }
 
 .hero-slide.active {
@@ -323,6 +328,7 @@ body {
     display: block;
     box-sizing: border-box;
     animation: float 6s ease-in-out infinite;
+    max-height: 80vh;
 }
 
 @keyframes float {
@@ -643,7 +649,9 @@ body {
 /* 响应式设计 */
 @media (max-width: 768px) {
     .hamburger {
-        display: flex;
+        display: flex !important;
+        z-index: 1001;
+        position: relative;
     }
     
     .nav-menu {
@@ -651,16 +659,35 @@ body {
         left: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: white;
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: 0.3s ease;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 2rem 0;
+        z-index: 1000;
+        display: flex;
     }
     
     .nav-menu.active {
-        left: 0;
+        left: 0 !important;
+    }
+    
+    .nav-item {
+        margin: 1rem 0;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
     
     .hero-container {
@@ -684,6 +711,18 @@ body {
     
     .hero-image {
         order: 2;
+    }
+    
+    .hero-carousel {
+        padding: 0.5rem 0;
+    }
+    
+    .hero-slide {
+        padding: 0.25rem 0;
+    }
+    
+    .hero-img {
+        max-height: 70vh;
     }
     
     .hero-title {
