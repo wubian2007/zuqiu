@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片处理器 - app4.jpeg 转 PNG</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .image-preview {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .image-preview img {
+            max-width: 100%;
+            max-height: 400px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .tools-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .tool-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #007bff;
+        }
+        .tool-card h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .tool-card a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .tool-card a:hover {
+            text-decoration: underline;
+        }
+        .steps {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .steps h3 {
+            color: #0056b3;
+            margin-top: 0;
+        }
+        .steps ol {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .steps li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        .download-btn:hover {
+            background: #218838;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ 图片处理器 - app4.jpeg 转 PNG</h1>
+        
+        <div class="image-preview">
+            <h3>当前图片预览</h3>
+            <img src="images/app4.jpeg" alt="app4.jpeg" id="previewImage">
+            <p><strong>文件大小：</strong>149KB | <strong>格式：</strong>JPEG</p>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ 注意：</strong>由于浏览器安全限制，无法直接在网页中处理图片转换。请使用以下工具进行转换。
+        </div>
+
+        <div class="tools-section">
+            <div class="tool-card">
+                <h3>🌐 在线工具推荐</h3>
+                <p><strong>1. Remove.bg</strong></p>
+                <a href="https://www.remove.bg/" target="_blank">https://www.remove.bg/</a>
+                <p>自动移除背景，保留主题内容</p>
+                
+                <p><strong>2. Photopea</strong></p>
+                <a href="https://www.photopea.com/" target="_blank">https://www.photopea.com/</a>
+                <p>在线Photoshop，功能强大</p>
+                
+                <p><strong>3. Canva</strong></p>
+                <a href="https://www.canva.com/" target="_blank">https://www.canva.com/</a>
+                <p>在线设计工具，简单易用</p>
+            </div>
+
+            <div class="tool-card">
+                <h3>💻 本地软件推荐</h3>
+                <p><strong>1. GIMP (免费)</strong></p>
+                <a href="https://www.gimp.org/" target="_blank">https://www.gimp.org/</a>
+                <p>功能强大的免费图像编辑器</p>
+                
+                <p><strong>2. Paint.NET</strong></p>
+                <a href="https://www.getpaint.net/" target="_blank">https://www.getpaint.net/</a>
+                <p>轻量级图像编辑器</p>
+                
+                <p><strong>3. Photoshop</strong></p>
+                <p>专业图像编辑软件（付费）</p>
+            </div>
+        </div>
+
+        <div class="steps">
+            <h3>📋 转换步骤指南</h3>
+            <ol>
+                <li><strong>打开图片：</strong>使用上述任一工具打开 app4.jpeg</li>
+                <li><strong>选择背景：</strong>使用魔术棒工具或套索工具选择背景区域</li>
+                <li><strong>删除背景：</strong>删除选中的背景或设置为透明</li>
+                <li><strong>优化边缘：</strong>使用羽化或模糊工具优化边缘</li>
+                <li><strong>保存文件：</strong>保存为 PNG 格式，命名为 app4.png</li>
+                <li><strong>替换文件：</strong>将新文件放入 images 文件夹中</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="images/app4.jpeg" download class="download-btn">📥 下载原图</a>
+            <button onclick="copyPath()" class="download-btn" style="background: #6c757d;">📋 复制路径</button>
+        </div>
+
+        <div class="tool-card">
+            <h3>🎯 转换目标</h3>
+            <ul>
+                <li>✅ 保留主题内容（应用界面、图标等）</li>
+                <li>✅ 移除或透明化背景</li>
+                <li>✅ 保存为 PNG 格式</li>
+                <li>✅ 文件大小优化</li>
+                <li>✅ 保持图片质量</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function copyPath() {
+            const path = 'images/app4.jpeg';
+            navigator.clipboard.writeText(path).then(() => {
+                alert('文件路径已复制到剪贴板：' + path);
+            }).catch(() => {
+                alert('无法复制路径，请手动复制：' + path);
+            });
+        }
+
+        // 图片加载错误处理
+        document.getElementById('previewImage').onerror = function() {
+            this.style.display = 'none';
+            this.parentNode.innerHTML = '<p style="color: red;">❌ 无法加载图片，请检查文件是否存在</p>';
+        };
+    </script>
+</body>
+</html>
