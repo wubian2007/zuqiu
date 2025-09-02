@@ -1185,81 +1185,129 @@ body {
     }
     
     .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 1rem;
+        grid-template-columns: 1fr !important;
+        text-align: center !important;
+        gap: 1rem !important;
+        padding: 0 15px !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
     }
     
     .hero-qr-section {
-        order: 3;
-        padding-top: 1rem;
+        order: 3 !important;
+        padding-top: 1rem !important;
+        width: 100% !important;
     }
     
     .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-        order: 1;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        order: 1 !important;
+        width: 100% !important;
+        padding: 0 !important;
     }
     
     .hero-image {
-        order: 2;
+        order: 2 !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
     }
     
     .hero-carousel {
-        padding: 0.5rem 0;
+        padding: 0.5rem 0 !important;
+        width: 100% !important;
+        max-width: 320px !important;
     }
     
     .hero-slide {
-        padding: 0.25rem 0;
+        padding: 0.25rem 0 !important;
+        width: 100% !important;
     }
     
     .hero-img {
-        max-height: 70vh;
+        max-height: 70vh !important;
+        width: 100% !important;
+        object-fit: contain !important;
     }
     
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2.5rem !important;
+        padding: 0 10px !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+        padding: 0 15px !important;
+    }
+    
+    .hero-highlight {
+        margin: 0 10px 2rem 10px !important;
     }
     
     .hero-buttons {
-        justify-content: center;
-        max-width: 100%;
+        justify-content: center !important;
+        max-width: 100% !important;
+        padding: 0 20px !important;
+        flex-wrap: wrap !important;
     }
     
     .download-stats {
-        justify-content: center;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 1rem !important;
+    }
+    
+    /* 确保容器不会产生水平滚动 */
+    .container {
+        padding: 0 15px !important;
+        max-width: 100% !important;
+        overflow: hidden !important;
     }
     
     /* 功能特色区域手机端优化 */
     .features {
-        padding: 3rem 0;
+        padding: 3rem 0 !important;
     }
     
     .section-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
+        font-size: 2rem !important;
+        margin-bottom: 2rem !important;
+        padding: 0 15px !important;
     }
     
     .features-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1rem !important;
+        padding: 0 15px !important;
     }
     
     .feature-card {
-        padding: 1.5rem 1rem;
-        border-radius: 10px;
+        padding: 1.5rem 1rem !important;
+        border-radius: 10px !important;
     }
     
     .feature-icon {
-        width: 50px;
-        height: 50px;
-        margin: 0 auto 1rem;
+        width: 50px !important;
+        height: 50px !important;
+        margin: 0 auto 1rem !important;
     }
     
     .feature-icon i {
-        font-size: 1.2rem;
+        font-size: 1.2rem !important;
+    }
+    
+    .feature-card h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .feature-card p {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
     }
     
     .feature-card h3 {
@@ -1394,11 +1442,131 @@ body {
     }
     
     .qr-img {
-        width: 100px;
-        height: 100px;
+        width: 100px !important;
+        height: 100px !important;
     }
     
-
+    /* 全局移动端优化 - 防止水平滚动 */
+    body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+    }
+    
+    .navbar {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    .nav-container {
+        padding: 0 15px !important;
+        max-width: 100% !important;
+    }
+    
+    /* 用户评价轮播图移动端优化 */
+    .reviews {
+        padding: 3rem 0 !important;
+    }
+    
+    .reviews-carousel {
+        max-width: 100% !important;
+        padding: 0 15px !important;
+        overflow: hidden !important;
+    }
+    
+    .reviews-container {
+        width: 100% !important;
+    }
+    
+    .review-card {
+        padding: 1.5rem 1rem !important;
+        margin: 0 0.5rem !important;
+        min-width: calc(100% - 1rem) !important;
+    }
+    
+    /* 联系我们移动端优化 */
+    .contact {
+        padding: 3rem 0 !important;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0 15px !important;
+        max-width: 100% !important;
+        display: grid !important;
+        align-items: start !important;
+    }
+    
+    .contact-item {
+        padding: 0 10px !important;
+    }
+    
+    /* 页脚移动端优化 */
+    .footer {
+        padding: 2rem 0 1rem !important;
+    }
+    
+    .footer-content {
+        display: block !important;
+        margin-bottom: 1.5rem !important;
+        padding: 0 15px !important;
+    }
+    
+    .footer-section:first-child {
+        text-align: center !important;
+        margin-bottom: 1rem !important;
+        display: block !important;
+    }
+    
+    .footer-section:nth-child(2),
+    .footer-section:nth-child(3) {
+        display: none !important;
+    }
+    
+    .footer-section:last-child {
+        text-align: center !important;
+        margin-top: 1rem !important;
+    }
+    
+    .footer-section h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    .footer-section p {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+    }
+    
+    .footer-section ul li {
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .footer-section ul li a {
+        font-size: 0.85rem !important;
+    }
+    
+    .social-links {
+        gap: 1rem !important;
+        justify-content: center !important;
+    }
+    
+    .social-links a {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 1.1rem !important;
+    }
+    
+    .footer-bottom {
+        padding-top: 1.5rem !important;
+        padding: 0 15px !important;
+    }
+    
+        .footer-bottom p {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+    }
 }
 
 @media (max-width: 480px) {
