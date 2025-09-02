@@ -6,228 +6,17 @@
     <title>DS足球 - 足球比分直播与数据分析平台</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* 移动端下载按钮左右排列 */
-        @media (max-width: 768px) {
-            .hero-buttons {
-                flex-direction: row !important;
-                gap: 1rem;
-                justify-content: center;
-            }
-            
-            .hero-buttons .btn {
-                flex: 1;
-                max-width: 150px;
-                min-width: 140px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.5rem;
-            }
-            
-            .hero-buttons .btn i {
-                font-size: 1.2rem;
-            }
-            
-            .hero-buttons .btn span {
-                font-size: 0.9rem;
-                white-space: nowrap;
-            }
-            
-            /* 导航栏移动端样式 */
-            .hamburger {
-                display: flex !important;
-                z-index: 1001;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 2rem 0;
-                display: flex;
-            }
-            
-            .nav-menu.active {
-                left: 0 !important;
-            }
-            
-            .nav-item {
-                margin: 1rem 0;
-            }
-            
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-        }
-        
-        /* PC端联系我们上下排列 */
-        @media (min-width: 769px) {
-            .contact-content {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-                max-width: 800px;
-                margin: 0 auto;
-            }
-        }
-        
-                 /* 减少轮播图上下空隙 */
-         .hero-carousel {
-             padding: 1rem 0 !important;
-         }
-         
-         .hero-slide {
-             padding: 0.5rem 0 !important;
-         }
-         
-         .hero-img {
-             max-height: 80vh !important;
-             object-fit: contain !important;
-         }
-         
-         @media (max-width: 768px) {
-             .hero-carousel {
-                 padding: 0.25rem 0 !important;
-             }
-             
-             .hero-slide {
-                 padding: 0.1rem 0 !important;
-             }
-             
-             .hero-img {
-                 max-height: 60vh !important;
-             }
-             
-             /* 减少移动端首页文字和图片的间距 */
-             .hero-content {
-                 margin-bottom: 0.5rem !important;
-             }
-             
-             .hero-buttons {
-                 margin-bottom: 0.5rem !important;
-             }
-             
-             .download-stats {
-                 margin-bottom: 0.5rem !important;
-             }
-             
-             .hero-image {
-                 margin-top: 0.5rem !important;
-             }
-         }
-        
-        /* 用户评价轮播样式 */
-        .reviews-carousel {
-            position: relative;
-            overflow: hidden;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .reviews-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .review-card {
-            min-width: 100%;
-            flex-shrink: 0;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin: 0 1rem;
-        }
-        
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #e1e8ed;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .carousel-dot.active {
-            background: #27ae60;
-        }
-        
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(39, 174, 96, 0.9);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: background 0.3s ease;
-        }
-        
-        .carousel-arrow:hover {
-            background: rgba(39, 174, 96, 1);
-        }
-        
-        .carousel-arrow.prev {
-            left: 10px;
-        }
-        
-        .carousel-arrow.next {
-            right: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .carousel-arrow {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            
-            .review-card {
-                padding: 1.5rem;
-                margin: 0 0.5rem;
-            }
-        }
-    </style>
+    <!-- 移除所有内联样式，避免与CSS文件冲突 -->
 </head>
 <body>
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
-                         <div class="nav-logo" onclick="location.reload()" style="cursor: pointer;">
-                 <img src="images/logo.png" alt="DS足球" class="logo-img">
-                 <span class="logo-text">DS足球</span>
-             </div>
+            <div class="nav-logo" style="cursor: pointer;">
+                <img src="images/logo.png" alt="DS足球" class="logo-img">
+                <span class="logo-text">DS足球</span>
+            </div>
+            
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#home" class="nav-link">首页</a>
@@ -239,14 +28,12 @@
                     <a href="#contact" class="nav-link">联系我们</a>
                 </li>
             </ul>
-                         <div class="hamburger" id="hamburger" onclick="toggleMenu()" style="display: flex !important; cursor: pointer; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; border: 1px solid rgba(0,0,0,0.1);">
-                 <span class="bar"></span>
-                 <span class="bar"></span>
-                 <span class="bar"></span>
-             </div>
-
-
-
+            
+            <button class="hamburger" id="hamburgerBtn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
@@ -372,10 +159,10 @@
         <div class="container">
             <h2 class="section-title">用户评价</h2>
             <div class="reviews-carousel">
-                <button class="carousel-arrow prev" onclick="changeReview(-1)">
+                <button class="carousel-arrow prev">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <button class="carousel-arrow next" onclick="changeReview(1)">
+                <button class="carousel-arrow next">
                     <i class="fas fa-chevron-right"></i>
                 </button>
                 
@@ -457,11 +244,11 @@
                     </div>
                 </div>
                 
-                <div class="carousel-controls">
-                    <div class="carousel-dot active" onclick="goToReview(0)"></div>
-                    <div class="carousel-dot" onclick="goToReview(1)"></div>
-                    <div class="carousel-dot" onclick="goToReview(2)"></div>
-                    <div class="carousel-dot" onclick="goToReview(3)"></div>
+                <div class="carousel-dots">
+                    <div class="carousel-dot active"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
+                    <div class="carousel-dot"></div>
                 </div>
             </div>
         </div>
@@ -476,7 +263,7 @@
                     <i class="fas fa-envelope"></i>
                     <div>
                         <h3>邮箱支持</h3>
-                        <p>support@dszuqiu.com</p>
+                        <p>support@dszq.com</p>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -490,14 +277,14 @@
                     <i class="fab fa-qq"></i>
                     <div>
                         <h3>QQ客服</h3>
-                        <p>123456789</p>
+                        <p>8801010</p>
                     </div>
                 </div>
                 <div class="contact-item">
                     <i class="fas fa-clock"></i>
                     <div>
                         <h3>服务时间</h3>
-                        <p>7×24小时在线服务</p>
+                        <p>7×24小时服务</p>
                     </div>
                 </div>
             </div>
@@ -547,162 +334,7 @@
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/image-checker.js"></script>
-    <script>
-
-        
-        
-        
-        // 全局菜单切换函数
-        function toggleMenu() {
-            console.log('toggleMenu函数被调用');
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (hamburger && navMenu) {
-                // 检查菜单是否可见（通过left属性判断）
-                const currentLeft = navMenu.style.left || getComputedStyle(navMenu).left;
-                const isVisible = currentLeft === '0px' || currentLeft === '0';
-                console.log('当前left值:', currentLeft);
-                console.log('菜单是否可见:', isVisible);
-                
-                if (isVisible) {
-                    // 关闭菜单
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    navMenu.style.setProperty('left', '-100%', 'important');
-                    console.log('菜单已关闭');
-                } else {
-                    // 打开菜单
-                    hamburger.classList.add('active');
-                    navMenu.classList.add('active');
-                    navMenu.style.setProperty('left', '0', 'important');
-                    console.log('菜单已打开');
-                }
-            } else {
-                console.error('菜单元素未找到');
-            }
-        }
-        // 用户评价轮播功能
-        let currentReview = 0;
-        const reviews = document.querySelectorAll('.review-card');
-        const dots = document.querySelectorAll('.carousel-dot');
-        const container = document.getElementById('reviewsContainer');
-        
-        function showReview(index) {
-            if (index < 0) index = reviews.length - 1;
-            if (index >= reviews.length) index = 0;
-            
-            currentReview = index;
-            container.style.transform = `translateX(-${index * 100}%)`;
-            
-            // 更新圆点状态
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-        }
-        
-        function changeReview(direction) {
-            showReview(currentReview + direction);
-        }
-        
-        function goToReview(index) {
-            showReview(index);
-        }
-        
-        // 自动轮播
-        setInterval(() => {
-            changeReview(1);
-        }, 5000);
-        
-        // 设备检测和下载链接设置
-        function detectDevice() {
-            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                return 'iOS';
-            } else if (/android/i.test(userAgent)) {
-                return 'Android';
-            } else {
-                return 'Other';
-            }
-        }
-        
-        function setDownloadLinks() {
-            const iosBtn = document.querySelector('.btn-primary.download-btn');
-            const androidBtn = document.querySelector('.btn-secondary.download-btn');
-            const qrCodeBtn = document.querySelector('.btn-outline');
-
-            if (iosBtn) {
-                iosBtn.onclick = () => { window.location.href = 'https://apps.apple.com/app/dszuqiu'; };
-            }
-            if (androidBtn) {
-                androidBtn.onclick = () => { window.location.href = 'https://play.google.com/store/apps/details?id=com.dszuqiu.app'; };
-            }
-            if (qrCodeBtn) {
-                qrCodeBtn.onclick = () => { showQRCodeModal(); };
-            }
-        }
-        
-        // 数字动画
-        function animateNumbers() {
-            const numbers = document.querySelectorAll('.stat-number');
-            
-            numbers.forEach(number => {
-                const target = number.textContent;
-                const isPercentage = target.includes('%');
-                const isPlus = target.includes('+');
-                const isDecimal = target.includes('.');
-                
-                let numericValue = parseFloat(target.replace(/[^0-9.]/g, ''));
-                let current = 0;
-                const increment = numericValue / 50;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= numericValue) {
-                        current = numericValue;
-                        clearInterval(timer);
-                    }
-                    
-                    let displayValue = current;
-                    if (isDecimal) {
-                        displayValue = current.toFixed(1);
-                    } else {
-                        displayValue = Math.floor(current);
-                    }
-                    
-                    if (isPercentage) {
-                        displayValue += '%';
-                    }
-                    if (isPlus) {
-                        displayValue += '+';
-                    }
-                    
-                    number.textContent = displayValue;
-                }, 30);
-            });
-        }
-        
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            setDownloadLinks();
-            animateNumbers();
-            
-            // 点击菜单项关闭菜单
-            const hamburger = document.getElementById('hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (hamburger && navMenu) {
-                document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-                    console.log('点击菜单项，关闭菜单');
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                    navMenu.style.setProperty('left', '-100%', 'important');
-                    console.log('菜单项点击后已关闭');
-                }));
-            }
-        });
-    </script>
+    <!-- 引入JavaScript文件 -->
+    <script src="js/main.js"></script>
 </body>
 </html>

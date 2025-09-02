@@ -6,209 +6,17 @@
     <title>DS足球 - 足球比分直播与数据分析平台</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* 移动端下载按钮左右排列 */
-        @media (max-width: 768px) {
-            .hero-buttons {
-                flex-direction: row !important;
-                gap: 1rem;
-                justify-content: center;
-            }
-            
-            .hero-buttons .btn {
-                flex: 1;
-                max-width: 150px;
-                min-width: 140px;
-                height: 50px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.5rem;
-            }
-            
-            .hero-buttons .btn i {
-                font-size: 1.2rem;
-            }
-            
-            .hero-buttons .btn span {
-                font-size: 0.9rem;
-                white-space: nowrap;
-            }
-            
-            /* 导航栏移动端样式 */
-            .hamburger {
-                display: flex !important;
-            }
-            
-            .nav-menu {
-                position: fixed;
-                left: -100%;
-                top: 70px;
-                flex-direction: column;
-                background-color: rgba(255, 255, 255, 0.95);
-                backdrop-filter: blur(10px);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-                padding: 2rem 0;
-            }
-            
-            .nav-menu.active {
-                left: 0;
-            }
-            
-            .nav-item {
-                margin: 1rem 0;
-            }
-            
-            .hamburger.active .bar:nth-child(2) {
-                opacity: 0;
-            }
-            
-            .hamburger.active .bar:nth-child(1) {
-                transform: translateY(8px) rotate(45deg);
-            }
-            
-            .hamburger.active .bar:nth-child(3) {
-                transform: translateY(-8px) rotate(-45deg);
-            }
-        }
-        
-        /* PC端联系我们上下排列 */
-        @media (min-width: 769px) {
-            .contact-content {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 3rem;
-                max-width: 800px;
-                margin: 0 auto;
-            }
-        }
-        
-        /* 减少轮播图上下空隙 */
-        .hero-carousel {
-            padding: 1rem 0 !important;
-        }
-        
-        .hero-slide {
-            padding: 0.5rem 0 !important;
-        }
-        
-        .hero-img {
-            max-height: 80vh !important;
-            object-fit: contain !important;
-        }
-        
-        @media (max-width: 768px) {
-            .hero-carousel {
-                padding: 0.5rem 0 !important;
-            }
-            
-            .hero-slide {
-                padding: 0.25rem 0 !important;
-            }
-            
-            .hero-img {
-                max-height: 70vh !important;
-            }
-        }
-        
-        /* 用户评价轮播样式 */
-        .reviews-carousel {
-            position: relative;
-            overflow: hidden;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .reviews-container {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-        
-        .review-card {
-            min-width: 100%;
-            flex-shrink: 0;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin: 0 1rem;
-        }
-        
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .carousel-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #e1e8ed;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        
-        .carousel-dot.active {
-            background: #27ae60;
-        }
-        
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(39, 174, 96, 0.9);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            transition: background 0.3s ease;
-        }
-        
-        .carousel-arrow:hover {
-            background: rgba(39, 174, 96, 1);
-        }
-        
-        .carousel-arrow.prev {
-            left: 10px;
-        }
-        
-        .carousel-arrow.next {
-            right: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .carousel-arrow {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-            
-            .review-card {
-                padding: 1.5rem;
-                margin: 0 0.5rem;
-            }
-        }
-    </style>
+    <!-- 完全移除内联样式，避免与CSS文件冲突 -->
 </head>
 <body>
-    <!-- 导航栏 -->
+    <!-- 导航栏 - 与测试页面完全一致 -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <div class="nav-logo" onclick="location.reload()" style="cursor: pointer;">
                 <img src="images/logo.png" alt="DS足球" class="logo-img">
                 <span class="logo-text">DS足球</span>
             </div>
+            
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#home" class="nav-link">首页</a>
@@ -220,11 +28,12 @@
                     <a href="#contact" class="nav-link">联系我们</a>
                 </li>
             </ul>
-            <div class="hamburger">
+            
+            <button class="hamburger" id="hamburgerBtn">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -249,11 +58,11 @@
                     <p>拥有全球207个国家或地区、2688个联赛、52824支球队的详细数据供您查询</p>
                 </div>
                 
-                <!-- 下载按钮 -->
+                <!-- 下载按钮 - 修复为并排显示 -->
                 <div class="hero-buttons">
                     <button class="btn btn-primary download-btn">
                         <i class="fab fa-apple"></i>
-                        <span>IOS下载</span>
+                        <span>iOS下载</span>
                     </button>
                     <button class="btn btn-secondary download-btn">
                         <i class="fab fa-google-play"></i>
@@ -360,12 +169,10 @@
                 <div class="reviews-container" id="reviewsContainer">
                     <div class="review-card">
                         <div class="review-header">
-                            <div class="user-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="user-info">
-                                <h4>张先生</h4>
-                                <div class="stars">
+                            <img src="images/app4.jpeg" alt="用户头像" class="review-avatar">
+                            <div class="review-info">
+                                <h4 class="review-name">张先生</h4>
+                                <div class="review-stars">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -374,17 +181,15 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="review-text">"界面设计很美观，用户体验很好，视频集锦很精彩，强烈推荐！"</p>
+                        <p class="review-text">"DS足球的数据非常准确，界面也很美观，是我用过最好的足球APP！"</p>
                     </div>
                     
                     <div class="review-card">
                         <div class="review-header">
-                            <div class="user-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="user-info">
-                                <h4>李女士</h4>
-                                <div class="stars">
+                            <img src="images/app4.jpeg" alt="用户头像" class="review-avatar">
+                            <div class="review-info">
+                                <h4 class="review-name">李女士</h4>
+                                <div class="review-stars">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -393,17 +198,15 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="review-text">"全球赛事数据很全，专家分析很专业，帮助我更好地了解足球。"</p>
+                        <p class="review-text">"实时比分更新很快，数据分析也很专业，推荐给所有足球爱好者！"</p>
                     </div>
                     
                     <div class="review-card">
                         <div class="review-header">
-                            <div class="user-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="user-info">
-                                <h4>王先生</h4>
-                                <div class="stars">
+                            <img src="images/app4.jpeg" alt="用户头像" class="review-avatar">
+                            <div class="review-info">
+                                <h4 class="review-name">王先生</h4>
+                                <div class="review-stars">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -412,34 +215,14 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="review-text">"比分更新很及时，数据统计很详细，是足球爱好者的必备应用！"</p>
-                    </div>
-                    
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="user-avatar">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="user-info">
-                                <h4>陈先生</h4>
-                                <div class="stars">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="review-text">"功能非常全面，从比分到数据再到资讯，一个应用搞定所有需求。"</p>
+                        <p class="review-text">"功能很全面，从比分到数据都有，用户体验很棒！"</p>
                     </div>
                 </div>
                 
-                <div class="carousel-controls">
-                    <div class="carousel-dot active" onclick="goToReview(0)"></div>
-                    <div class="carousel-dot" onclick="goToReview(1)"></div>
-                    <div class="carousel-dot" onclick="goToReview(2)"></div>
-                    <div class="carousel-dot" onclick="goToReview(3)"></div>
+                <div class="carousel-dots">
+                    <span class="carousel-dot active" onclick="goToReview(0)"></span>
+                    <span class="carousel-dot" onclick="goToReview(1)"></span>
+                    <span class="carousel-dot" onclick="goToReview(2)"></span>
                 </div>
             </div>
         </div>
@@ -450,33 +233,20 @@
         <div class="container">
             <h2 class="section-title">联系我们</h2>
             <div class="contact-content">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h3>邮箱支持</h3>
-                        <p>support@dszuqiu.com</p>
-                    </div>
+                <div class="contact-info">
+                    <h3>联系方式</h3>
+                    <p><i class="fas fa-envelope"></i> 邮箱：contact@dszuqiu.com</p>
+                    <p><i class="fas fa-phone"></i> 电话：400-123-4567</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 地址：北京市朝阳区科技园区</p>
                 </div>
-                <div class="contact-item">
-                    <i class="fab fa-weixin"></i>
-                    <div>
-                        <h3>微信客服</h3>
-                        <p>dszuqiu_support</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-qq"></i>
-                    <div>
-                        <h3>QQ客服</h3>
-                        <p>123456789</p>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h3>服务时间</h3>
-                        <p>7×24小时在线服务</p>
-                    </div>
+                <div class="contact-form">
+                    <h3>留言反馈</h3>
+                    <form>
+                        <input type="text" placeholder="您的姓名" required>
+                        <input type="email" placeholder="您的邮箱" required>
+                        <textarea placeholder="您的留言" rows="4" required></textarea>
+                        <button type="submit" class="btn btn-primary">发送留言</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -485,49 +255,56 @@
     <!-- 页脚 -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>DS足球</h3>
-                    <p>足球比分直播与数据分析平台，为您提供最优质的足球数据服务。</p>
-                </div>
-                <div class="footer-section">
-                    <h3>产品功能</h3>
-                    <ul>
-                        <li><a href="#">比分直播</a></li>
-                        <li><a href="#">数据统计</a></li>
-                        <li><a href="#">比赛日程</a></li>
-                        <li><a href="#">足球资讯</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>帮助支持</h3>
-                    <ul>
-                        <li><a href="#">使用教程</a></li>
-                        <li><a href="#">常见问题</a></li>
-                        <li><a href="#">更新日志</a></li>
-                        <li><a href="#">意见反馈</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>关注我们</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-weixin"></i></a>
-                        <a href="#"><i class="fab fa-weibo"></i></a>
-                        <a href="#"><i class="fab fa-qq"></i></a>
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>声明：本网资讯仅供体育爱好者进行比赛浏览观看研究之用，任何人不得用于非法用途，否则责任自负。</p>
-                <p>&copy; 2025 DSZUQIU.COM. All Rights Reserved. 蜀ICP备14008209号 | <a href="#">关于我们</a> | <a href="#">意见反馈</a></p>
-            </div>
+            <p>&copy; 2024 DS足球. 保留所有权利.</p>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
-    <script src="js/image-checker.js"></script>
     <script>
+        // 全局菜单切换函数 - 确保在全局作用域
+        function toggleMenu() {
+            console.log('=== toggleMenu函数被调用 ===');
+            const hamburger = document.getElementById('hamburgerBtn');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            console.log('汉堡菜单元素:', hamburger);
+            console.log('导航菜单元素:', navMenu);
+            
+            if (hamburger && navMenu) {
+                console.log('切换前的状态:');
+                console.log('汉堡菜单active类:', hamburger.classList.contains('active'));
+                console.log('导航菜单active类:', navMenu.classList.contains('active'));
+                
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                
+                console.log('切换后的状态:');
+                console.log('汉堡菜单active类:', hamburger.classList.contains('active'));
+                console.log('导航菜单active类:', navMenu.classList.contains('active'));
+                
+                if (navMenu.classList.contains('active')) {
+                    console.log('✅ 菜单已打开');
+                    // 添加菜单项动画延迟
+                    const navItems = navMenu.querySelectorAll('.nav-item');
+                    navItems.forEach((item, index) => {
+                        item.style.transitionDelay = `${(index + 1) * 0.1}s`;
+                    });
+                } else {
+                    console.log('❌ 菜单已关闭');
+                    // 移除菜单项动画延迟
+                    const navItems = navMenu.querySelectorAll('.nav-item');
+                    navItems.forEach(item => {
+                        item.style.transitionDelay = '0s';
+                    });
+                }
+            } else {
+                console.error('❌ 菜单元素未找到');
+                if (!hamburger) console.error('汉堡菜单元素未找到');
+                if (!navMenu) console.error('导航菜单元素未找到');
+            }
+            
+            console.log('=== toggleMenu函数结束 ===\n');
+        }
+
         // 用户评价轮播功能
         let currentReview = 0;
         const reviews = document.querySelectorAll('.review-card');
@@ -630,24 +407,73 @@
         
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== 页面加载完成 ===');
+            
             setDownloadLinks();
             animateNumbers();
             
-            // 导航栏功能
-            const hamburger = document.querySelector('.hamburger');
+            // 获取汉堡菜单元素
+            const hamburger = document.getElementById('hamburgerBtn');
             const navMenu = document.querySelector('.nav-menu');
             
+            console.log('汉堡菜单元素:', hamburger);
+            console.log('导航菜单元素:', navMenu);
+            
             if (hamburger && navMenu) {
-                hamburger.addEventListener('click', () => {
-                    hamburger.classList.toggle('active');
-                    navMenu.classList.toggle('active');
+                // 添加点击事件监听器
+                hamburger.addEventListener('click', toggleMenu);
+                console.log('✅ 汉堡菜单事件监听器已添加');
+                
+                // 点击菜单项关闭菜单
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault(); // 阻止默认跳转
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        console.log('菜单项点击后已关闭');
+                        
+                        // 移除菜单项动画延迟
+                        const navItems = navMenu.querySelectorAll('.nav-item');
+                        navItems.forEach(item => {
+                            item.style.transitionDelay = '0s';
+                        });
+                    });
                 });
                 
-                document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-                    hamburger.classList.remove('active');
-                    navMenu.classList.remove('active');
-                }));
+                // 点击页面其他地方关闭菜单
+                document.addEventListener('click', (e) => {
+                    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                        if (navMenu.classList.contains('active')) {
+                            hamburger.classList.remove('active');
+                            navMenu.classList.remove('active');
+                            console.log('点击页面其他地方，菜单已关闭');
+                            
+                            // 移除菜单项动画延迟
+                            const navItems = navMenu.querySelectorAll('.nav-item');
+                            navItems.forEach(item => {
+                                item.style.transitionDelay = '0s';
+                            });
+                        }
+                    }
+                });
+                
+                // 测试菜单状态
+                console.log('菜单初始状态:', {
+                    hamburgerClasses: hamburger.className,
+                    navMenuClasses: navMenu.className,
+                    navMenuStyle: getComputedStyle(navMenu)
+                });
+                
+            } else {
+                console.error('❌ 汉堡菜单元素未找到');
             }
+            
+            console.log('=== 初始化完成 ===\n');
+        });
+        
+        // 备用初始化方法
+        window.addEventListener('load', function() {
+            console.log('页面完全加载完成');
         });
     </script>
 </body>
